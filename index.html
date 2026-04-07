@@ -18,11 +18,11 @@
     <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" />
 
-    <!-- Google Fonts -->
+    <!-- Google Fonts — Jua (playful display) + IBM Plex Sans KR (clean body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Jua&family=IBM+Plex+Sans+KR:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
 
@@ -35,54 +35,60 @@
     <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
-    <!-- Floating confetti dots -->
-    <div class="confetti-layer" aria-hidden="true">
-      <span class="dot dot-1"></span>
-      <span class="dot dot-2"></span>
-      <span class="dot dot-3"></span>
-      <span class="dot dot-4"></span>
-      <span class="dot dot-5"></span>
-      <span class="dot dot-6"></span>
-      <span class="dot dot-7"></span>
-      <span class="dot dot-8"></span>
+    <!-- Geometric background shapes -->
+    <div class="bg-shapes" aria-hidden="true">
+      <div class="shape shape-1"></div>
+      <div class="shape shape-2"></div>
+      <div class="shape shape-3"></div>
+      <div class="shape shape-4"></div>
+      <div class="shape shape-5"></div>
     </div>
 
     <div class="container">
       <!-- 1. Hero Section -->
       <section data-section="hero" class="section section-hero">
-        <div class="hero-wrapper">
-          <img
-            src="/images/hero.jpg"
-            alt="이지호의 생일 파티 초대장"
-            class="hero-image"
-          />
-          <div class="hero-overlay"></div>
-          <div class="hero-content">
-            <span class="hero-badge">🎂 Birthday Party</span>
+        <div class="hero-frame">
+          <div class="hero-img-wrap">
+            <img
+              src="/images/hero.jpg"
+              alt="이지호의 생일 파티 초대장"
+              class="hero-image"
+            />
+          </div>
+          <div class="hero-text-block">
+            <span class="hero-tag">🎉 PARTY TIME</span>
             <h1 class="hero-title">이지호의 생일 파티</h1>
-            <p class="hero-date">2026. 04. 11 FRI</p>
+            <div class="hero-date-pill">
+              <span>2026</span>
+              <span class="hero-dot">·</span>
+              <span>04.11</span>
+              <span class="hero-dot">·</span>
+              <span>FRI</span>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- 2. Greeting Section -->
       <section data-section="greeting" class="section section-greeting">
-        <div class="ornament ornament-top" aria-hidden="true"></div>
+        <div class="sticker sticker-star" aria-hidden="true">⭐</div>
         <h2 class="section-title">초대합니다</h2>
-        <div class="greeting-line" aria-hidden="true"></div>
         <p class="body-text">지호의 생일에 함께해 주세요!</p>
-        <div class="ornament ornament-bottom" aria-hidden="true"></div>
+        <div class="sticker sticker-sparkle" aria-hidden="true">✨</div>
       </section>
 
       <!-- 3. Datetime Section -->
       <section data-section="datetime" class="section section-datetime">
         <h2 class="section-title">언제</h2>
-        <div class="datetime-card">
-          <div class="datetime-month">4월</div>
-          <div class="datetime-day">11</div>
-          <div class="datetime-meta">
+        <div class="time-block">
+          <div class="time-big">
+            <span class="time-number">4.11</span>
+            <span class="time-label">금요일</span>
+          </div>
+          <div class="time-divider"></div>
+          <div class="time-detail">
             <p class="body-text">2026년 4월 11일 (금)</p>
-            <p class="body-text datetime-time">오후 2시</p>
+            <p class="body-text time-highlight">오후 2시</p>
           </div>
         </div>
       </section>
@@ -90,13 +96,11 @@
       <!-- 4. Gathering Section -->
       <section data-section="gathering" class="section section-gathering">
         <h2 class="section-title">집합 장소</h2>
-        <div class="location-card">
-          <div class="location-icon" aria-hidden="true">🚌</div>
-          <div class="location-info">
-            <p class="body-text">오후 1시</p>
-            <p class="body-text">지호네 집 앞 (코오롱오투빌2차 아파트 앞)</p>
-            <p class="address">서울시 강서구 양천로 62길 41</p>
-          </div>
+        <div class="place-card">
+          <div class="place-badge">🚌 모여요!</div>
+          <p class="body-text place-time">오후 1시</p>
+          <p class="body-text">지호네 집 앞 (코오롱오투빌2차 아파트 앞)</p>
+          <p class="address">서울시 강서구 양천로 62길 41</p>
         </div>
         <div class="map-container">
           <div id="map-gathering" class="kakao-map"></div>
@@ -107,20 +111,17 @@
           rel="noopener noreferrer"
           class="map-link"
         >
-          <span class="map-link-icon">📍</span>
-          네이버 지도에서 보기
+          📍 네이버 지도에서 보기
         </a>
       </section>
 
       <!-- 5. Venue Section -->
       <section data-section="venue" class="section section-venue">
         <h2 class="section-title">파티 장소</h2>
-        <div class="location-card">
-          <div class="location-icon" aria-hidden="true">🎪</div>
-          <div class="location-info">
-            <p class="body-text venue-name">원마운트 1층</p>
-            <p class="address">경기 고양시 일산서구 한류월드로 300</p>
-          </div>
+        <div class="place-card place-card-accent">
+          <div class="place-badge">🎪 놀러가요!</div>
+          <p class="body-text venue-name">원마운트 1층</p>
+          <p class="address">경기 고양시 일산서구 한류월드로 300</p>
         </div>
         <div class="map-container">
           <div id="map-venue" class="kakao-map"></div>
@@ -131,17 +132,17 @@
           rel="noopener noreferrer"
           class="map-link"
         >
-          <span class="map-link-icon">📍</span>
-          네이버 지도에서 보기
+          📍 네이버 지도에서 보기
         </a>
       </section>
 
       <!-- 6. Supplies Section -->
       <section data-section="supplies" class="section section-supplies">
         <h2 class="section-title">준비물</h2>
-        <div class="supplies-card">
-          <span class="supplies-icon" aria-hidden="true">🧦</span>
+        <div class="supplies-bubble">
+          <span class="supplies-emoji">🧦</span>
           <p class="body-text">미끄럼 방지용 양말</p>
+          <span class="supplies-sub">꼭 챙겨오세요!</span>
         </div>
       </section>
 
@@ -149,16 +150,13 @@
       <section data-section="contact" class="section section-contact">
         <h2 class="section-title">연락처</h2>
         <p class="body-text contact-label">엄마</p>
-        <a href="tel:010-9921-3109" class="tel-button">
-          <span class="tel-icon" aria-hidden="true">📞</span>
-          010-9921-3109
-        </a>
+        <a href="tel:010-9921-3109" class="tel-button"> 📞 010-9921-3109 </a>
       </section>
 
       <!-- Footer -->
       <footer class="invitation-footer" aria-hidden="true">
-        <div class="footer-line"></div>
-        <p class="footer-text">with love 💛</p>
+        <div class="footer-deco">🎂 🎈 🎁 🎉 🧁</div>
+        <p class="footer-text">지호가 기다릴게요!</p>
       </footer>
     </div>
 
