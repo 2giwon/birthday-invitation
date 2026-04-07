@@ -399,6 +399,13 @@ body::after {
   margin-top: 2px;
 }
 
+.cal-sub {
+  font-size: 14px;
+  color: var(--ink-light) !important;
+  margin-top: 2px;
+  line-height: 1.5;
+}
+
 /* ============================================
    LOCATION NOTE — Gathering & Venue
    ============================================ */
