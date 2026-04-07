@@ -79,28 +79,48 @@
 
       <!-- 3. Datetime Section -->
       <section data-section="datetime" class="section section-datetime">
-        <h2 class="section-title">언제</h2>
-        <div class="time-block">
-          <div class="time-big">
-            <span class="time-number">4.11</span>
-            <span class="time-label">금요일</span>
-          </div>
-          <div class="time-divider"></div>
-          <div class="time-detail">
-            <p class="body-text">2026년 4월 11일 (금)</p>
-            <p class="body-text time-highlight">오후 2시</p>
+        <div class="scrap-card scrap-tilt-l">
+          <div class="pin" aria-hidden="true"></div>
+          <h2 class="section-title">언제</h2>
+          <div class="calendar-strip">
+            <div class="cal-date">
+              <span class="cal-month">4월</span>
+              <span class="cal-day">11</span>
+              <span class="cal-dow">금</span>
+            </div>
+            <div class="cal-info">
+              <p class="body-text">2026년 4월 11일 (금)</p>
+              <p class="body-text cal-time">오후 2시</p>
+              <p class="body-text cal-sub">만나는시간: 오후 1시 30분</p>
+              <p class="body-text cal-sub">귀가시간: 5시 30분쯤</p>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- 4. Gathering Section -->
       <section data-section="gathering" class="section section-gathering">
-        <h2 class="section-title">집합 장소</h2>
-        <div class="place-card">
-          <div class="place-badge">🚌 모여요!</div>
-          <p class="body-text place-time">오후 1시</p>
-          <p class="body-text">지호네 집 앞 (코오롱오투빌2차 아파트 앞)</p>
-          <p class="address">서울시 강서구 양천로 62길 41</p>
+        <div class="scrap-card scrap-tilt-r">
+          <div class="tape tape-top-left" aria-hidden="true"></div>
+          <h2 class="section-title">집합 장소</h2>
+          <div class="location-note">
+            <span class="note-marker" aria-hidden="true">📌</span>
+            <div class="note-body">
+              <p class="body-text">지호네 집 앞 (코오롱오투빌2차 아파트 앞)</p>
+              <p class="address">서울시 강서구 양천로 62길 41</p>
+            </div>
+          </div>
+          <div class="map-container">
+            <div id="map-gathering" class="kakao-map"></div>
+          </div>
+          <a
+            href="https://map.naver.com/v5/search/서울시 강서구 양천로 62길 41"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="map-link"
+          >
+            📍 네이버 지도에서 보기
+          </a>
         </div>
         <div class="map-container">
           <div id="map-gathering" class="kakao-map"></div>

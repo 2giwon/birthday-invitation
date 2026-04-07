@@ -423,6 +423,13 @@ body::before {
   margin-top: 4px;
 }
 
+.cal-sub {
+  font-size: 14px;
+  color: var(--ink-light) !important;
+  margin-top: 2px;
+  line-height: 1.5;
+}
+
 /* ============================================
    LOCATION SECTIONS (Gathering & Venue)
    ============================================ */
