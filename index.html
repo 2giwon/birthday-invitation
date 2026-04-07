@@ -76,26 +76,39 @@
 
       <!-- 3. Datetime Section -->
       <section data-section="datetime" class="section section-datetime">
-        <h2 class="section-title">언제</h2>
-        <div class="datetime-card">
-          <div class="datetime-month">4월</div>
-          <div class="datetime-day">11</div>
-          <div class="datetime-meta">
-            <p class="body-text">2026년 4월 11일 (금)</p>
-            <p class="body-text datetime-time">오후 2시</p>
+        <div class="scrap-card scrap-tilt-l">
+          <div class="pin" aria-hidden="true"></div>
+          <h2 class="section-title">언제</h2>
+          <div class="calendar-strip">
+            <div class="cal-date">
+              <span class="cal-month">4월</span>
+              <span class="cal-day">11</span>
+              <span class="cal-dow">금</span>
+            </div>
+            <div class="cal-info">
+              <p class="body-text">2026년 4월 11일 (금)</p>
+              <p class="body-text cal-time">오후 2시</p>
+              <p class="body-text cal-sub">만나는시간: 오후 1시 30분</p>
+              <p class="body-text cal-sub">귀가시간: 5시 30분쯤</p>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- 4. Gathering Section -->
       <section data-section="gathering" class="section section-gathering">
-        <h2 class="section-title">집합 장소</h2>
-        <div class="location-card">
-          <div class="location-icon" aria-hidden="true">🚌</div>
-          <div class="location-info">
-            <p class="body-text">오후 1시</p>
-            <p class="body-text">지호네 집 앞 (코오롱오투빌2차 아파트 앞)</p>
-            <p class="address">서울시 강서구 양천로 62길 41</p>
+        <div class="scrap-card scrap-tilt-r">
+          <div class="tape tape-top-left" aria-hidden="true"></div>
+          <h2 class="section-title">집합 장소</h2>
+          <div class="location-note">
+            <span class="note-marker" aria-hidden="true">📌</span>
+            <div class="note-body">
+              <p class="body-text">지호네 집 앞 (코오롱오투빌2차 아파트 앞)</p>
+              <p class="address">서울시 강서구 양천로 62길 41</p>
+            </div>
+          </div>
+          <div class="map-container">
+            <div id="map-gathering" class="kakao-map"></div>
           </div>
         </div>
         <div class="map-container">
