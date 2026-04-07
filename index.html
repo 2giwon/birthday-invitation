@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>이지호의 생일 파티에 초대합니다!</title>
+
+    <!-- OG Meta Tags -->
+    <meta property="og:title" content="이지호의 생일 파티에 초대합니다!" />
+    <meta
+      property="og:description"
+      content="4월 11일(금) 오후 2시, 원마운트에서 만나요!"
+    />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:url" content="/" />
+    <meta property="og:type" content="website" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" />
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=Gowun+Dodum:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Kakao Map SDK -->
+    <script
+      type="text/javascript"
+      src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=21123267d07e856a4c2b89dd5e71bd97&libraries=services"
+    ></script>
+
+    <link rel="stylesheet" href="/src/style.css" />
+  </head>
+  <body>
+    <!-- Floating confetti dots -->
+    <div class="confetti-layer" aria-hidden="true">
+      <span class="dot dot-1"></span>
+      <span class="dot dot-2"></span>
+      <span class="dot dot-3"></span>
+      <span class="dot dot-4"></span>
+      <span class="dot dot-5"></span>
+      <span class="dot dot-6"></span>
+      <span class="dot dot-7"></span>
+      <span class="dot dot-8"></span>
+    </div>
+
+    <div class="container">
+      <!-- 1. Hero Section -->
+      <section data-section="hero" class="section section-hero">
+        <div class="hero-wrapper">
+          <img
+            src="/images/hero.jpg"
+            alt="이지호의 생일 파티 초대장"
+            class="hero-image"
+          />
+          <div class="hero-overlay"></div>
+          <div class="hero-content">
+            <span class="hero-badge">🎂 Birthday Party</span>
+            <h1 class="hero-title">이지호의 생일 파티</h1>
+            <p class="hero-date">2026. 04. 11 FRI</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 2. Greeting Section -->
+      <section data-section="greeting" class="section section-greeting">
+        <div class="ornament ornament-top" aria-hidden="true"></div>
+        <h2 class="section-title">초대합니다</h2>
+        <div class="greeting-line" aria-hidden="true"></div>
+        <p class="body-text">지호의 생일에 함께해 주세요!</p>
+        <div class="ornament ornament-bottom" aria-hidden="true"></div>
+      </section>
+
+      <!-- 3. Datetime Section -->
+      <section data-section="datetime" class="section section-datetime">
+        <h2 class="section-title">언제</h2>
+        <div class="datetime-card">
+          <div class="datetime-month">4월</div>
+          <div class="datetime-day">11</div>
+          <div class="datetime-meta">
+            <p class="body-text">2026년 4월 11일 (금)</p>
+            <p class="body-text datetime-time">오후 2시</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4. Gathering Section -->
+      <section data-section="gathering" class="section section-gathering">
+        <h2 class="section-title">집합 장소</h2>
+        <div class="location-card">
+          <div class="location-icon" aria-hidden="true">🚌</div>
+          <div class="location-info">
+            <p class="body-text">오후 1시</p>
+            <p class="body-text">지호네 집 앞 (코오롱오투빌2차 아파트 앞)</p>
+            <p class="address">서울시 강서구 양천로 62길 41</p>
+          </div>
+        </div>
+        <div class="map-container">
+          <div id="map-gathering" class="kakao-map"></div>
+        </div>
+        <a
+          href="https://map.naver.com/v5/search/서울시 강서구 양천로 62길 41"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="map-link"
+        >
+          <span class="map-link-icon">📍</span>
+          네이버 지도에서 보기
+        </a>
+      </section>
+
+      <!-- 5. Venue Section -->
+      <section data-section="venue" class="section section-venue">
+        <h2 class="section-title">파티 장소</h2>
+        <div class="location-card">
+          <div class="location-icon" aria-hidden="true">🎪</div>
+          <div class="location-info">
+            <p class="body-text venue-name">원마운트 1층</p>
+            <p class="address">경기 고양시 일산서구 한류월드로 300</p>
+          </div>
+        </div>
+        <div class="map-container">
+          <div id="map-venue" class="kakao-map"></div>
+        </div>
+        <a
+          href="https://map.naver.com/v5/search/경기 고양시 일산서구 한류월드로 300 원마운트"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="map-link"
+        >
+          <span class="map-link-icon">📍</span>
+          네이버 지도에서 보기
+        </a>
+      </section>
+
+      <!-- 6. Supplies Section -->
+      <section data-section="supplies" class="section section-supplies">
+        <h2 class="section-title">준비물</h2>
+        <div class="supplies-card">
+          <span class="supplies-icon" aria-hidden="true">🧦</span>
+          <p class="body-text">미끄럼 방지용 양말</p>
+        </div>
+      </section>
+
+      <!-- 7. Contact / Footer Section -->
+      <section data-section="contact" class="section section-contact">
+        <h2 class="section-title">연락처</h2>
+        <p class="body-text contact-label">엄마</p>
+        <a href="tel:010-9921-3109" class="tel-button">
+          <span class="tel-icon" aria-hidden="true">📞</span>
+          010-9921-3109
+        </a>
+      </section>
+
+      <!-- Footer -->
+      <footer class="invitation-footer" aria-hidden="true">
+        <div class="footer-line"></div>
+        <p class="footer-text">with love 💛</p>
+      </footer>
+    </div>
+
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

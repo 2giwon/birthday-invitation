@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(echo \"exit: $?\")",
+      "Bash(npm create:*)",
+      "Bash(cp -r /Users/igiwon/Documents/birthday-invitation/tmp/vite-temp/src/* src/)",
+      "Bash(cp -r /Users/igiwon/Documents/birthday-invitation/tmp/vite-temp/public/* public/)",
+      "Bash(npm install:*)",
+      "Bash(npx playwright:*)",
+      "Bash(node:*)",
+      "Bash(npx prettier:*)",
+      "Bash(grep -c \"test\\(\" e2e/tester/*.spec.js)",
+      "Read(//Users/igiwon/Documents/birthday-invitation/**)",
+      "WebSearch",
+      "Bash(git stash:*)",
+      "Bash(git init:*)",
+      "Bash(git add:*)"
+    ]
+  }
+}

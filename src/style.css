@@ -1,0 +1,688 @@
+/* ============================================
+   Birthday Invitation — "Confetti Celebration"
+   A warm, handcrafted Korean invitation aesthetic
+   ============================================ */
+
+/* --- Design Tokens --- */
+:root {
+  /* Base palette */
+  --ivory: #faf6f0;
+  --cream: #f5ede3;
+  --blush: #f8e8e0;
+  --peach: #f2c4a8;
+  --coral: #e8927c;
+  --coral-deep: #d4735c;
+  --sage: #c5d5c0;
+  --lavender: #d8cfe8;
+  --sky: #c4daf0;
+  --butter: #f5e6a3;
+
+  /* Text */
+  --text-primary: #3a3028;
+  --text-secondary: #7a7068;
+  --text-light: #a89e94;
+
+  /* Surfaces */
+  --surface-warm: #fdf8f2;
+  --surface-card: rgba(255, 255, 255, 0.7);
+  --surface-glass: rgba(255, 255, 255, 0.45);
+
+  /* Shadows */
+  --shadow-soft: 0 4px 24px rgba(58, 48, 40, 0.06);
+  --shadow-medium: 0 8px 32px rgba(58, 48, 40, 0.1);
+  --shadow-glow: 0 0 40px rgba(232, 146, 124, 0.15);
+
+  /* Spacing */
+  --space-xs: 8px;
+  --space-sm: 16px;
+  --space-md: 24px;
+  --space-lg: 40px;
+  --space-xl: 64px;
+
+  /* Radius */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-full: 9999px;
+}
+
+/* --- Reset --- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* --- Base --- */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family:
+    "Gowun Dodum", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+  color: var(--text-primary);
+  background-color: var(--ivory);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Subtle background texture via gradient noise */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse at 20% 0%,
+      rgba(248, 232, 224, 0.6) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 80% 20%,
+      rgba(216, 207, 232, 0.3) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      ellipse at 50% 80%,
+      rgba(196, 218, 240, 0.25) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 10% 60%,
+      rgba(245, 230, 163, 0.2) 0%,
+      transparent 40%
+    );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* --- Confetti Layer --- */
+.confetti-layer {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.dot {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.35;
+  animation: float 20s infinite ease-in-out;
+}
+
+.dot-1 {
+  width: 12px;
+  height: 12px;
+  background: var(--coral);
+  top: 8%;
+  left: 10%;
+  animation-delay: 0s;
+}
+.dot-2 {
+  width: 8px;
+  height: 8px;
+  background: var(--lavender);
+  top: 15%;
+  right: 12%;
+  animation-delay: -3s;
+}
+.dot-3 {
+  width: 14px;
+  height: 14px;
+  background: var(--butter);
+  top: 35%;
+  left: 5%;
+  animation-delay: -7s;
+}
+.dot-4 {
+  width: 10px;
+  height: 10px;
+  background: var(--sage);
+  top: 45%;
+  right: 8%;
+  animation-delay: -2s;
+}
+.dot-5 {
+  width: 8px;
+  height: 8px;
+  background: var(--peach);
+  top: 60%;
+  left: 12%;
+  animation-delay: -5s;
+}
+.dot-6 {
+  width: 12px;
+  height: 12px;
+  background: var(--sky);
+  top: 70%;
+  right: 15%;
+  animation-delay: -9s;
+}
+.dot-7 {
+  width: 6px;
+  height: 6px;
+  background: var(--coral);
+  top: 85%;
+  left: 8%;
+  animation-delay: -4s;
+}
+.dot-8 {
+  width: 10px;
+  height: 10px;
+  background: var(--lavender);
+  top: 92%;
+  right: 10%;
+  animation-delay: -6s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) translateX(0) scale(1);
+  }
+  25% {
+    transform: translateY(-15px) translateX(8px) scale(1.1);
+  }
+  50% {
+    transform: translateY(-5px) translateX(-5px) scale(0.95);
+  }
+  75% {
+    transform: translateY(-20px) translateX(3px) scale(1.05);
+  }
+}
+
+/* --- Container --- */
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  position: relative;
+  z-index: 1;
+}
+
+/* --- Sections Base --- */
+.section {
+  text-align: center;
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Typography --- */
+.hero-title {
+  font-family: "Gowun Batang", "Batang", serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+}
+
+.section-title {
+  font-family: "Gowun Batang", "Batang", serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: var(--space-sm);
+  letter-spacing: 0.04em;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 32px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--coral), var(--peach));
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+.body-text {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--text-primary);
+  word-break: keep-all;
+}
+
+.address {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-secondary);
+  margin-top: 6px;
+  word-break: keep-all;
+  line-height: 1.5;
+}
+
+/* ============================================
+   HERO SECTION
+   ============================================ */
+.section-hero {
+  opacity: 1;
+  transform: translateY(0);
+  padding: var(--space-sm) 0;
+}
+
+.hero-wrapper {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-medium);
+  aspect-ratio: 3 / 4;
+  max-height: 480px;
+  background: linear-gradient(
+    135deg,
+    var(--blush),
+    var(--lavender),
+    var(--sky)
+  );
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(250, 246, 240, 0.98) 0%,
+    rgba(250, 246, 240, 0.7) 30%,
+    rgba(250, 246, 240, 0.1) 60%,
+    transparent 100%
+  );
+}
+
+.hero-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: var(--space-lg) var(--space-md) var(--space-md);
+  text-align: center;
+  z-index: 1;
+}
+
+.hero-badge {
+  display: inline-block;
+  font-family: "Gowun Dodum", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--coral);
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 6px 16px;
+  border-radius: var(--radius-full);
+  margin-bottom: var(--space-sm);
+  border: 1px solid rgba(232, 146, 124, 0.2);
+}
+
+.hero-date {
+  font-family: "Gowun Dodum", sans-serif;
+  font-size: 14px;
+  color: var(--text-secondary);
+  letter-spacing: 0.12em;
+  margin-top: 8px;
+}
+
+/* ============================================
+   GREETING SECTION
+   ============================================ */
+.section-greeting {
+  background: var(--surface-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-md);
+  padding: var(--space-xl) var(--space-md);
+  margin: var(--space-md) 0;
+  position: relative;
+  box-shadow: var(--shadow-soft);
+}
+
+.ornament {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 24px;
+  background:
+    radial-gradient(circle at 10px 12px, var(--peach) 3px, transparent 3px),
+    radial-gradient(
+      circle at 30px 8px,
+      var(--lavender) 2.5px,
+      transparent 2.5px
+    ),
+    radial-gradient(circle at 50px 14px, var(--sage) 2px, transparent 2px);
+  opacity: 0.6;
+}
+
+.ornament-top {
+  top: 16px;
+}
+.ornament-bottom {
+  bottom: 16px;
+}
+
+.greeting-line {
+  width: 40px;
+  height: 1px;
+  background: var(--peach);
+  margin: var(--space-sm) auto;
+  opacity: 0.6;
+}
+
+/* ============================================
+   DATETIME SECTION
+   ============================================ */
+.section-datetime {
+  padding: var(--space-lg) 0;
+}
+
+.datetime-card {
+  background: var(--surface-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  margin-top: var(--space-sm);
+  box-shadow: var(--shadow-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+.datetime-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--coral), var(--peach), var(--butter));
+}
+
+.datetime-month {
+  font-family: "Gowun Batang", serif;
+  font-size: 14px;
+  color: var(--coral);
+  letter-spacing: 0.1em;
+  font-weight: 700;
+}
+
+.datetime-day {
+  font-family: "Gowun Batang", serif;
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.1;
+  margin: 4px 0;
+}
+
+.datetime-meta {
+  margin-top: 8px;
+  padding-top: var(--space-sm);
+  border-top: 1px solid rgba(58, 48, 40, 0.08);
+}
+
+.datetime-time {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--coral);
+  margin-top: 4px;
+}
+
+/* ============================================
+   LOCATION SECTIONS (Gathering & Venue)
+   ============================================ */
+.section-gathering,
+.section-venue {
+  padding: var(--space-lg) 0;
+}
+
+.location-card {
+  background: var(--surface-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  margin-top: var(--space-sm);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-sm);
+  text-align: left;
+}
+
+.location-icon {
+  font-size: 28px;
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--blush);
+  border-radius: var(--radius-sm);
+}
+
+.location-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.venue-name {
+  font-weight: 700;
+  font-size: 17px;
+}
+
+/* Map */
+.map-container {
+  margin-top: var(--space-sm);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: var(--shadow-soft);
+  border: 1px solid rgba(58, 48, 40, 0.06);
+}
+
+.kakao-map {
+  width: 100%;
+  height: 200px;
+  display: block;
+}
+
+.map-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: var(--space-sm);
+  padding: 10px 20px;
+  min-height: 44px;
+  min-width: 44px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--coral);
+  text-decoration: none;
+  background: rgba(232, 146, 124, 0.08);
+  border-radius: var(--radius-full);
+  border: 1px solid rgba(232, 146, 124, 0.15);
+  transition: all 0.25s ease;
+}
+
+.map-link:hover {
+  background: rgba(232, 146, 124, 0.15);
+  transform: translateY(-1px);
+}
+
+.map-link-icon {
+  font-size: 16px;
+}
+
+/* ============================================
+   SUPPLIES SECTION
+   ============================================ */
+.section-supplies {
+  padding: var(--space-lg) 0;
+}
+
+.supplies-card {
+  background: var(--surface-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-md);
+  padding: var(--space-md) var(--space-md);
+  margin-top: var(--space-sm);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+}
+
+.supplies-icon {
+  font-size: 32px;
+}
+
+/* ============================================
+   CONTACT SECTION
+   ============================================ */
+.section-contact {
+  padding: var(--space-lg) 0;
+}
+
+.contact-label {
+  color: var(--text-secondary);
+  font-size: 15px;
+  margin-bottom: 4px;
+}
+
+.tel-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: var(--space-sm);
+  padding: 14px 36px;
+  min-width: 44px;
+  min-height: 44px;
+  background: linear-gradient(135deg, var(--coral), var(--coral-deep));
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: var(--radius-full);
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow:
+    var(--shadow-soft),
+    0 0 20px rgba(232, 146, 124, 0.2);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.tel-button:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    var(--shadow-medium),
+    0 0 30px rgba(232, 146, 124, 0.3);
+}
+
+.tel-button:active {
+  transform: translateY(0);
+}
+
+.tel-icon {
+  font-size: 18px;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.invitation-footer {
+  text-align: center;
+  padding: var(--space-lg) 0 var(--space-xl);
+}
+
+.footer-line {
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--peach), transparent);
+  margin: 0 auto var(--space-md);
+}
+
+.footer-text {
+  font-family: "Gowun Dodum", sans-serif;
+  font-size: 13px;
+  color: var(--text-light);
+  letter-spacing: 0.08em;
+}
+
+/* ============================================
+   ANIMATIONS & MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .section {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
+  .dot {
+    animation: none !important;
+  }
+
+  .map-link,
+  .tel-button {
+    transition: none !important;
+  }
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 var(--space-sm);
+  }
+
+  .hero-wrapper {
+    border-radius: var(--radius-md);
+  }
+
+  .location-card {
+    padding: var(--space-sm);
+  }
+}
+
+@media (min-width: 481px) {
+  .container {
+    padding: 0 var(--space-md);
+  }
+
+  body {
+    background:
+      linear-gradient(135deg, rgba(248, 232, 224, 0.3), transparent 50%),
+      linear-gradient(225deg, rgba(216, 207, 232, 0.2), transparent 50%),
+      var(--ivory);
+  }
+}
